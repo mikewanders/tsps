@@ -1,0 +1,17 @@
+services:
+  tsps:
+    build: .
+    container_name: tsps
+    restart: unless-stopped
+    ports:
+      - "3000:3000"     # browser client: http://<server-ip>:3000
+      - "49598:49598"   # game websocket
+    volumes:
+      - caches:/app/server/caches       # OSRS cache, downloaded on first start (~450 MB)
+      - saves:/app/server/data/saves    # accounts and characters
+      - logs:/app/server/logs
+
+volumes:
+  caches:
+  saves:
+  logs:

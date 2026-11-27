@@ -1,0 +1,11 @@
+.git
+**/node_modules
+.env
+.env.*
+!.env.example
+client/build
+server/dist
+server/caches
+server/logs
+server/data/saves/*.json
+*.log
