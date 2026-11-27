@@ -7,13 +7,15 @@ RUN corepack enable
 
 # Ports match the root .env used on Windows, so the two setups behave the same.
 # The client swaps "localhost" for whatever host the browser opened the page on,
-# so these work from any device on the LAN.
+# so these work from any device on the LAN. PUBLIC_URL=/ because client/package.json's
+# homepage (/play) is the live site's path, while serve-build.mjs serves the build at the root.
 ENV WEBSOCKET_PORT=49598 \
     GATEWAY_PORT=43599 \
     PORT=3000 \
     REACT_APP_DEFAULT_WS_URL=ws://localhost:49598 \
     REACT_APP_DEFAULT_SERVER_ADDRESS=localhost:49598 \
     FAST_REFRESH=false \
+    PUBLIC_URL=/ \
     GATEWAY_LOGIN_HTTP_PORT=0 \
     GATEWAY_LOGIN_TRUST_LOOPBACK_PROXY=false
 
